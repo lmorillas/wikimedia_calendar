@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SW Libre Events</title>
+
+    <!-- metadata -->
+    <meta name="description" content="sw libre events">
+
+    <!-- Datos + importadores -->
+    <link href="events.json" type="application/json" rel="exhibit-data" />
+
+
+    <!-- libs simile-exhibit -->
+
+    <script src="//api.simile-widgets.org/exhibit/HEAD/lib/jquery-1.11.3.min.js" type="text/javascript">
+    </script>
+    <link rel="exhibit-extension" href="//api.simile-widgets.org/exhibit/HEAD/extensions/map/map-extension.js" />
+    <link rel="exhibit-extension" href="//api.simile-widgets.org/exhibit/HEAD/extensions/time/time-extension.js" />
+    <script src="//api.simile-widgets.org/exhibit/HEAD/exhibit-api.js" type="text/javascript"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <script src="//cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .exhibit-cloudFacet-value {
+        font-size: smaller;
+        text-transform: lowercase;
+    }
+    .exhibit-facet-value {
+        font-size: smaller;
+    }
+
+    div.exhibit-legendWidget > div.exhibit-color-legend > div > div > span.label {
+           color: black;
+    }
+    </style>
+
+    <script type="text/javascript">
+    $(window).load(function() {
+        $("input").addClass("form-control");
+    });
+    </script>
+</head>
+<body>
+
+
+    <div class="container-fluid">
+        <div class="col-xs-8 center-block" style="float:none;">
+            <center>
+                <h1>Libre SW Events</h1>
+                <p>Data extracted from the ATI Calendar</p>
+            </center>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+
+               <div class="ext_search" data-ex-role="exhibit-facet" data-ex-facet-class="TextSearch" data-ex-facet-label="Search event">
+                </div>
+
+                <div data-ex-role="exhibit-facet" data-ex-expression=".month" data-ex-facet-label="Month" data-ex-show-missing="false" data-ex-scroll="true" data-ex-collapsible="true" data-ex-fixed-order="January;February;March;April;May;June;July;August;September;October;November;December" data-ex-collapsible="true"></div>
+            </div>
+
+            <div class="col-md-9">
+              <div data-ex-role="exhibit-viewPanel">
+
+                <div data-ex-role="lens" class="a-lens" style="display: none;">
+                    <div class="title"><strong><a data-ex-href-content=".url"><span data-ex-content=".label"></span>
+                    </a></strong>
+                    </div>
+
+                    <table class="details table table-striped">
+                        <tr>
+                            <td class="property">More info:</td>
+                            <td>
+                                <span data-ex-content=".description"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="property">Start:</td>
+                            <td>
+                                <span data-ex-content=".start"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="property">End:</td>
+                            <td>
+                                <span data-ex-content=".end"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <div data-ex-role="view" data-ex-view-class="Timeline"  data-ex-start=".start" data-ex-end=".end" data-ex-label="Timeline" data-ex-top-band-unit="month" >
+                </div>
+
+            </div>
+        </div>
+        <footer>
+            By @lmorillas. Source code: <a href="https://github.com/lmorillas/swlibre_events">https://github.com/lmorillas/swlibre_events</a>
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>
